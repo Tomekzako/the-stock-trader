@@ -15,12 +15,13 @@
     <el-menu-item index="3">
       <nuxt-link to="/stocks" class="header_link">Stocks</nuxt-link>
     </el-menu-item>
-    <el-submenu index="4">
+    <el-submenu index="5" class="header_right">
       <template slot="title">Workspace</template>
-      <el-menu-item index="4-1">item one</el-menu-item>
-      <el-menu-item index="4-2">item two</el-menu-item>
-      <el-menu-item index="4-3">item three</el-menu-item>
+      <el-menu-item index="5-1">item one</el-menu-item>
+      <el-menu-item index="5-2">item two</el-menu-item>
+      <el-menu-item index="5-3">item three</el-menu-item>
     </el-submenu>
+    <el-menu-item index="4" class="header_right">End Day</el-menu-item>
   </el-menu>
 </template>
 
@@ -42,5 +43,8 @@
 <style>
     .header_link {
             text-decoration: none;
-        }
+    }
+    .el-menu--horizontal>.header_right {
+        float: right;
+    }
 </style>

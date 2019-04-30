@@ -2,6 +2,7 @@
   <section>
     <div>
       <app-header />
+      <nuxt-child />
     </div>
   </section>
 </template>
@@ -12,11 +13,11 @@ import appHeader from '~/components/Header.vue'
 
 export default {
   components: {
-    Logo,
     appHeader
   }
 }
 </script>
 
 <style>
+
 </style>
