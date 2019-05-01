@@ -1,50 +1,63 @@
 <template>
-  <el-menu
-    :default-active="activeIndex" 
-    class="el-menu-demo" 
-    mode="horizontal"
-    background-color="#545c64"
-    text-color="#fff"
-    active-text-color="#ffd04b">
-    <el-menu-item index="1">
-      <nuxt-link to="/" class="header_link">Stock Trader</nuxt-link>
-    </el-menu-item>
-    <el-menu-item index="2">
-      <nuxt-link to="/portfolio" class="header_link">Portfolio</nuxt-link>
-    </el-menu-item>
-    <el-menu-item index="3">
-      <nuxt-link to="/stocks" class="header_link">Stocks</nuxt-link>
-    </el-menu-item>
-    <el-submenu index="5" class="header_right">
-      <template slot="title">Workspace</template>
-      <el-menu-item index="5-1">item one</el-menu-item>
-      <el-menu-item index="5-2">item two</el-menu-item>
-      <el-menu-item index="5-3">item three</el-menu-item>
-    </el-submenu>
-    <el-menu-item index="4" class="header_right">End Day</el-menu-item>
-  </el-menu>
+<el-row>
+  <el-col :span="24">
+    <div class="header_menu">
+      <nuxt-link tag="li" to="/" class="header_menu-item">Stock Trader</nuxt-link>
+      <nuxt-link tag="li" to="/portfolio" class="header_menu-item">Portfolio</nuxt-link>
+      <nuxt-link tag="li" to="/stocks" class="header_menu-item">Stocks</nuxt-link>
+      <li class="header_menu-item header_menu-item-right">End Day</li>
+      <li class="header_menu-item">
+        <el-dropdown>
+          <span class="el-dropdown-link">
+            Dropdown List<i class="el-icon-arrow-down el-icon--right"></i>
+          </span>
+          <el-dropdown-menu slot="dropdown">
+            <el-dropdown-item>Action 1</el-dropdown-item>
+            <el-dropdown-item>Action 2</el-dropdown-item>
+          </el-dropdown-menu>
+        </el-dropdown>
+      </li>
+    </div>
+  </el-col>
+</el-row>
 </template>
 
 <script>
   export default {
-    data() {
-      return {
-        activeIndex: '1'
-      }
-    },
-    methods: {
-      handleSelect(key, keyPath) {
-        console.log(key, keyPath);
-      }
-    }
+
   }
 </script>
 
-<style>
-    .header_link {
-            text-decoration: none;
+<style lang="scss">
+  .header_menu {
+    display: flex;
+    list-style: none;
+    background-color: #f6f6f6;
+    border-radius: 5px;
+    border: 1px solid #d3d3d3;
+  }
+  .header_menu-item {
+    padding: 20px;
+    font-size: 16px;
+    cursor: pointer;
+    &:nth-of-type(1) {
+      font-size: 18px;
     }
-    .el-menu--horizontal>.header_right {
-        float: right;
+    &.nuxt-link-exact-active {
+      background-color: #d3d3d3;
     }
+  }
+
+  .header_menu-item-right {
+    margin-left: auto;
+  }
+
+  .el-dropdown-link {
+    cursor: pointer;
+    color: #000;
+    font-size: 16px;
+  }
+  .el-icon-arrow-down {
+    font-size: 12px;
+  }
 </style>

@@ -20,4 +20,8 @@ export default {
 
 <style>
 
+  body {
+    padding: 30px;
+  }
+
 </style>
