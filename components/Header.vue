@@ -1,25 +1,25 @@
 <template>
-<el-row>
-  <el-col :span="24">
-    <div class="header_menu">
-      <nuxt-link tag="li" to="/" class="header_menu-item">Stock Trader</nuxt-link>
-      <nuxt-link tag="li" to="/portfolio" class="header_menu-item">Portfolio</nuxt-link>
-      <nuxt-link tag="li" to="/stocks" class="header_menu-item">Stocks</nuxt-link>
-      <li class="header_menu-item header_menu-item-right">End Day</li>
-      <li class="header_menu-item">
-        <el-dropdown>
-          <span class="el-dropdown-link">
-            Dropdown List<i class="el-icon-arrow-down el-icon--right"></i>
-          </span>
-          <el-dropdown-menu slot="dropdown">
-            <el-dropdown-item>Action 1</el-dropdown-item>
-            <el-dropdown-item>Action 2</el-dropdown-item>
-          </el-dropdown-menu>
-        </el-dropdown>
-      </li>
-    </div>
-  </el-col>
-</el-row>
+  <el-row :gutter="20">
+    <el-col :span="24">
+      <div class="header_menu">
+        <nuxt-link tag="li" to="/" class="header_menu-item">Stock Trader</nuxt-link>
+        <nuxt-link tag="li" to="/portfolio" class="header_menu-item">Portfolio</nuxt-link>
+        <nuxt-link tag="li" to="/stocks" class="header_menu-item">Stocks</nuxt-link>
+        <li class="header_menu-item header_menu-item-right">End Day</li>
+        <li class="header_menu-item">
+          <el-dropdown>
+            <span class="el-dropdown-link">
+              Dropdown List<i class="el-icon-arrow-down el-icon--right"></i>
+            </span>
+            <el-dropdown-menu slot="dropdown">
+              <el-dropdown-item>Action 1</el-dropdown-item>
+              <el-dropdown-item>Action 2</el-dropdown-item>
+            </el-dropdown-menu>
+          </el-dropdown>
+        </li>
+      </div>
+    </el-col>
+  </el-row>
 </template>
 
 <script>
@@ -44,7 +44,9 @@
       font-size: 18px;
     }
     &.nuxt-link-exact-active {
-      background-color: #d3d3d3;
+      background-color: #409EFF;
+      color: #fff;
+      font-weight: bold;
     }
   }
 
@@ -59,5 +61,13 @@
   }
   .el-icon-arrow-down {
     font-size: 12px;
+  }
+  .el-dropdown-menu__item {
+    color: inherit;
+    &:focus, 
+    &:not(.is-disabled):hover {
+    background-color: #d3d3d3;
+    color: inherit
+}
   }
 </style>

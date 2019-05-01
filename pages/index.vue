@@ -1,10 +1,12 @@
 <template>
-  <section>
-    <div>
+  <el-container>
+    <el-header>
       <app-header />
+    </el-header>
+    <el-main>
       <nuxt-child />
-    </div>
-  </section>
+    </el-main>
+  </el-container>
 </template>
 
 <script>
@@ -22,6 +24,10 @@ export default {
 
   body {
     padding: 30px;
+  }
+
+  .el-header {
+    padding: 0;
   }
 
 </style>
