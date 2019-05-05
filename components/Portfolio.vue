@@ -2,7 +2,7 @@
     <el-col :span="8">
         <el-card class="card" :body-style="{ padding: '0' }">
             <div class="card_header">
-                <h3 class="card_name">{{ stock.name }} <span>(Price: {{ stock.price }})</span></h3>
+                <h3 class="card_name">{{ stock.name }} <span>(Price: {{ stock.price }} | Quantity: {{ stock.quantity }})</span></h3>
             </div>
             <div class="card_main">
                 <el-input
@@ -15,8 +15,8 @@
                 <el-button 
                     type="primary" 
                     round
-                    @click="buyStock"
-                    :disabled="quantity <=0 || !Number.isInteger(parseFloat(quantity))">Buy</el-button>  
+                    @click="sellStock"
+                    :disabled="quantity <=0 || !Number.isInteger(parseFloat(quantity))">Sell</el-button>  
             </div>
         </el-card>
     </el-col>   
@@ -31,13 +31,14 @@ export default {
         }
     },
     methods: {
-        buyStock() {
+        sellStock() {
             const order = {
                 stockId: this.stock.id,
                 stockPrice: this.stock.price,
-                quantity: parseFloat(this.quantity)
+                quantity: this.quantity
             };
-            this.$store.dispatch('stocks/buyStock', order);
+            console.log(order);
+            this.$store.dispatch('portfolio/sellStock', order);
             this.quantity = 0;
         }
     }
